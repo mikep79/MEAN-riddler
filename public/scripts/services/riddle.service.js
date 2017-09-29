@@ -2,7 +2,9 @@ myApp.service('RiddleService', function ($http) {
     var self = this;
     console.log("are we working");
 
-    // empty array to hold joke data from server for get req in obj form.
+    self.riddleObj = {
+        joke: []
+    };
 
     self.postRiddle = function (newRiddle) {
         console.log('in service:', newRiddle);
@@ -14,5 +16,14 @@ myApp.service('RiddleService', function ($http) {
             console.log('in service POST with', response);
         })
     }; // testing some BS
+    self.getRiddles = function() {
+        $http({
+            method: 'GET',
+            url: '/riddles'
+        }).then(function(response){
+            console.log('GET req response: ', response.data);
+            self.riddleObj.joke = response.data;
+        });
+    };
     // post req using joke object from plusRiddle.controller
 });

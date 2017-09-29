@@ -18,4 +18,16 @@ router.post('/', function (req, res){
     });
 });
 
+router.get('/', function (req, res){
+    Jokes.find({}, function (err, jokeResults) {
+        if (err){
+            console.log('router get err: ', err);
+            res.sendStatus(500);
+        } else {
+            console.log('jokeResult: ', jokeResults);
+            res.send(jokeResults);
+        }
+    });
+});
+
 module.exports = router;

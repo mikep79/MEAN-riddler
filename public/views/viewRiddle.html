@@ -1,0 +1,16 @@
+<section>
+    <h1>View Riddles</h1>
+    <div>
+        <!-- setup here -->
+    </div>
+    <button ng-click='SRC.getRiddles()'>Show Punchline</button>
+    <div>
+        <p ng-repeat='joke in SRC.jokeObj.joke'>
+            {{ joke.name }}
+        </p>
+        <!-- creator line here  -->
+    </div>
+    <div>
+        <!-- carousel -->
+    </div>
+</section>
